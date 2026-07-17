@@ -3,7 +3,8 @@ package com.library.book_manager.bookController;
 import com.library.book_manager.bookService.BookService;
 import com.library.book_manager.dto.BookRequest;
 import com.library.book_manager.dto.BookResponse;
-import com.library.book_manager.entity.Book;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,14 +21,35 @@ import java.util.List;
 @RequestMapping("/book")
 public class BookController
 {
+    Logger log = LoggerFactory.getLogger(BookController.class);
+
     @Autowired
     private BookService bookService;
 
     @PostMapping("/add")
     public ResponseEntity<BookResponse> addBook(@RequestBody BookRequest bookRequest)
     {
+        log.trace("Entered the controller for creating a new book");
+
+        if(bookRequest.getAuthor().startsWith("sameer")){
+            log.debug("Author name is Sameer for book {}", bookRequest.toString());
+        }
+
+        int computedResult = compute(bookRequest);
+        log.info("This is the computed result {}", computedResult);
+
+        if(computedResult != bookRequest.getBookSold()*20 && computedResult < (bookRequest.getBookSold()*20 + 4)) {
+            log.warn("The computation was not accurate but it was still in rage with the value as {}", computedResult);
+        } else {
+            log.error("The computed value exceeds the range with the value of {}", computedResult);
+        }
         BookResponse bookResponse = bookService.addBook(bookRequest);
         return ResponseEntity.status(HttpStatus.CREATED).body(bookResponse);
+    }
+
+    //function to compute price of bookSold
+    public  int compute(BookRequest bookRequest) {
+        return bookRequest.getBookSold()*20 +2;
     }
 
     @GetMapping("/get-all-books")
