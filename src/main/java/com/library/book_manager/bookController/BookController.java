@@ -31,16 +31,19 @@ public class BookController
     {
         log.trace("Entered the controller for creating a new book");
 
-        if(bookRequest.getAuthor().startsWith("sameer")){
+        if (bookRequest.getAuthor().startsWith("sameer"))
+        {
             log.debug("Author name is Sameer for book {}", bookRequest.toString());
         }
 
         int computedResult = compute(bookRequest);
         log.info("This is the computed result {}", computedResult);
 
-        if(computedResult != bookRequest.getBookSold()*20 && computedResult < (bookRequest.getBookSold()*20 + 4)) {
+        if (computedResult != bookRequest.getBookSold() * 20 && computedResult < (bookRequest.getBookSold() * 20 + 4))
+        {
             log.warn("The computation was not accurate but it was still in rage with the value as {}", computedResult);
-        } else {
+        } else
+        {
             log.error("The computed value exceeds the range with the value of {}", computedResult);
         }
         BookResponse bookResponse = bookService.addBook(bookRequest);
@@ -48,8 +51,9 @@ public class BookController
     }
 
     //function to compute price of bookSold
-    public  int compute(BookRequest bookRequest) {
-        return bookRequest.getBookSold()*20 +2;
+    public int compute(BookRequest bookRequest)
+    {
+        return bookRequest.getBookSold() * 20 + 2;
     }
 
     @GetMapping("/get-all-books")
@@ -74,7 +78,8 @@ public class BookController
     }
 
     @DeleteMapping("/delete-book/{id}")
-    public ResponseEntity<?> deleteBook(@PathVariable("id") Long id) {
+    public ResponseEntity<?> deleteBook(@PathVariable("id") Long id)
+    {
         String message = bookService.deleteBook(id);
         return ResponseEntity.status(HttpStatus.OK).body(message);
     }

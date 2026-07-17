@@ -6,6 +6,8 @@ import com.library.book_manager.dto.BookResponse;
 import com.library.book_manager.entity.Book;
 import com.library.book_manager.exception.BookNotFoundException;
 import com.library.book_manager.transformer.BookTransformer;
+import io.micrometer.core.instrument.MeterRegistry;
+import org.hibernate.id.IncrementGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,9 +26,16 @@ public class BookService
     @Autowired
     private BookRepository bookRepository;
 
+    @Autowired
+    private MeterRegistry meterRegistry; //to implement Custom Metric
+
     public BookResponse addBook(BookRequest bookRequest)
     {
         Book book = BookTransformer.bookRequestToBook(bookRequest);
+
+        //Custom metric to keep count of total number of book added
+        meterRegistry.counter("Custom-Metric-Example").increment();
+
         Book savedBook = bookRepository.save(book);
         BookResponse bookResponse = BookTransformer.bookToBookResponse(savedBook);
         return bookResponse;

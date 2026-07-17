@@ -1073,3 +1073,110 @@ Offending resource: class path resource [com/library/book_manager/configuration/
 2026-07-17T18:30:15.521+05:30  INFO 22996 --- [book-manager] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
 2026-07-17T18:30:15.530+05:30  INFO 22996 --- [book-manager] [main] c.l.book_manager.BookManagerApplication  : Started BookManagerApplication in 5.476 seconds (process running for 5.959)
 2026-07-17T18:30:19.036+05:30  INFO 22996 --- [book-manager] [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-07-17T18:50:26.622+05:30  INFO 22996 --- [book-manager] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-07-17T18:50:26.668+05:30  INFO 22996 --- [book-manager] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-07-17T18:50:26.694+05:30  INFO 22996 --- [book-manager] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-07-17T18:50:26.731+05:30  INFO 22996 --- [book-manager] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-07-17T18:50:26.746+05:30  INFO 22996 --- [book-manager] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-07-17T18:50:30.822+05:30  INFO 18280 --- [book-manager] [main] c.l.book_manager.BookManagerApplication  : Starting BookManagerApplication using Java 17.0.14 with PID 18280 (F:\Java Full Stack  projects\Spring Boot projects\book-manager\book-manager\target\classes started by VIKASH in F:\Java Full Stack  projects\Spring Boot projects\book-manager\book-manager)
+2026-07-17T18:50:30.826+05:30 DEBUG 18280 --- [book-manager] [main] c.l.book_manager.BookManagerApplication  : Running with Spring Boot v4.1.0, Spring v7.0.8
+2026-07-17T18:50:30.828+05:30  INFO 18280 --- [book-manager] [main] c.l.book_manager.BookManagerApplication  : No active profile set, falling back to 1 default profile: "default"
+2026-07-17T18:50:31.684+05:30  INFO 18280 --- [book-manager] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-17T18:50:31.746+05:30  INFO 18280 --- [book-manager] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 48 ms. Found 1 JPA repository interface.
+2026-07-17T18:50:32.505+05:30  INFO 18280 --- [book-manager] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-07-17T18:50:32.517+05:30  INFO 18280 --- [book-manager] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-07-17T18:50:32.517+05:30  INFO 18280 --- [book-manager] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-07-17T18:50:32.569+05:30  INFO 18280 --- [book-manager] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1674 ms
+2026-07-17T18:50:32.891+05:30  INFO 18280 --- [book-manager] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-07-17T18:50:32.983+05:30  INFO 18280 --- [book-manager] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-07-17T18:50:33.464+05:30  INFO 18280 --- [book-manager] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-17T18:50:33.502+05:30  INFO 18280 --- [book-manager] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-07-17T18:50:33.656+05:30  INFO 18280 --- [book-manager] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:bookdb user=SA
+2026-07-17T18:50:33.657+05:30  INFO 18280 --- [book-manager] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-07-17T18:50:33.728+05:30  INFO 18280 --- [book-manager] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:bookdb]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: BOOKDB/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-07-17T18:50:34.534+05:30  INFO 18280 --- [book-manager] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-17T18:50:34.579+05:30 DEBUG 18280 --- [book-manager] [main] org.hibernate.SQL                        : 
+    create table book (
+        id bigint generated by default as identity,
+        author varchar(255),
+        book_sold integer,
+        title varchar(255),
+        primary key (id)
+    )
+2026-07-17T18:50:34.587+05:30  INFO 18280 --- [book-manager] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-17T18:50:34.690+05:30  INFO 18280 --- [book-manager] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-07-17T18:50:34.855+05:30  WARN 18280 --- [book-manager] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-07-17T18:50:35.325+05:30  INFO 18280 --- [book-manager] [main] o.s.b.h.a.H2ConsoleAutoConfiguration     : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:bookdb'
+2026-07-17T18:50:35.408+05:30  INFO 18280 --- [book-manager] [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 13 endpoints beneath base path '/actuator'
+2026-07-17T18:50:35.500+05:30  INFO 18280 --- [book-manager] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-07-17T18:50:35.511+05:30  INFO 18280 --- [book-manager] [main] c.l.book_manager.BookManagerApplication  : Started BookManagerApplication in 5.232 seconds (process running for 5.696)
+2026-07-17T18:55:30.797+05:30  INFO 18280 --- [book-manager] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-07-17T18:55:45.614+05:30  INFO 18280 --- [book-manager] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-07-17T18:55:45.634+05:30  INFO 18280 --- [book-manager] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-07-17T18:55:45.644+05:30  INFO 18280 --- [book-manager] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-07-17T18:55:45.660+05:30  INFO 18280 --- [book-manager] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-07-17T18:55:45.669+05:30  INFO 18280 --- [book-manager] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-07-17T18:55:49.466+05:30  INFO 10068 --- [book-manager] [main] c.l.book_manager.BookManagerApplication  : Starting BookManagerApplication using Java 17.0.14 with PID 10068 (F:\Java Full Stack  projects\Spring Boot projects\book-manager\book-manager\target\classes started by VIKASH in F:\Java Full Stack  projects\Spring Boot projects\book-manager\book-manager)
+2026-07-17T18:55:49.469+05:30 DEBUG 10068 --- [book-manager] [main] c.l.book_manager.BookManagerApplication  : Running with Spring Boot v4.1.0, Spring v7.0.8
+2026-07-17T18:55:49.470+05:30  INFO 10068 --- [book-manager] [main] c.l.book_manager.BookManagerApplication  : No active profile set, falling back to 1 default profile: "default"
+2026-07-17T18:55:50.323+05:30  INFO 10068 --- [book-manager] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-17T18:55:50.407+05:30  INFO 10068 --- [book-manager] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 69 ms. Found 1 JPA repository interface.
+2026-07-17T18:55:51.155+05:30  INFO 10068 --- [book-manager] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-07-17T18:55:51.174+05:30  INFO 10068 --- [book-manager] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-07-17T18:55:51.174+05:30  INFO 10068 --- [book-manager] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-07-17T18:55:51.244+05:30  INFO 10068 --- [book-manager] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1716 ms
+2026-07-17T18:55:51.652+05:30  INFO 10068 --- [book-manager] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-07-17T18:55:51.751+05:30  INFO 10068 --- [book-manager] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-07-17T18:55:52.349+05:30  INFO 10068 --- [book-manager] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-17T18:55:52.395+05:30  INFO 10068 --- [book-manager] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-07-17T18:55:52.630+05:30  INFO 10068 --- [book-manager] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:bookdb user=SA
+2026-07-17T18:55:52.632+05:30  INFO 10068 --- [book-manager] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-07-17T18:55:52.699+05:30  INFO 10068 --- [book-manager] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:bookdb]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: BOOKDB/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-07-17T18:55:53.592+05:30  INFO 10068 --- [book-manager] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-17T18:55:53.635+05:30 DEBUG 10068 --- [book-manager] [main] org.hibernate.SQL                        : 
+    create table book (
+        id bigint generated by default as identity,
+        author varchar(255),
+        book_sold integer,
+        title varchar(255),
+        primary key (id)
+    )
+2026-07-17T18:55:53.645+05:30  INFO 10068 --- [book-manager] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-17T18:55:53.758+05:30  INFO 10068 --- [book-manager] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-07-17T18:55:53.919+05:30  WARN 10068 --- [book-manager] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-07-17T18:55:54.387+05:30  INFO 10068 --- [book-manager] [main] o.s.b.h.a.H2ConsoleAutoConfiguration     : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:bookdb'
+2026-07-17T18:55:54.474+05:30  INFO 10068 --- [book-manager] [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 13 endpoints beneath base path '/actuator'
+2026-07-17T18:55:54.607+05:30  INFO 10068 --- [book-manager] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-07-17T18:55:54.618+05:30  INFO 10068 --- [book-manager] [main] c.l.book_manager.BookManagerApplication  : Started BookManagerApplication in 5.699 seconds (process running for 6.161)
+2026-07-17T18:56:05.227+05:30  INFO 10068 --- [book-manager] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-07-17T18:56:18.900+05:30  INFO 10068 --- [book-manager] [http-nio-8080-exec-3] c.l.b.bookController.BookController      : This is the computed result 402
+2026-07-17T18:56:18.900+05:30  WARN 10068 --- [book-manager] [http-nio-8080-exec-3] c.l.b.bookController.BookController      : The computation was not accurate but it was still in rage with the value as 402
+2026-07-17T18:56:18.963+05:30 DEBUG 10068 --- [book-manager] [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    insert 
+    into
+        book
+        (author, book_sold, title, id) 
+    values
+        (?, ?, ?, default)
